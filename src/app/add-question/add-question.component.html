@@ -1,0 +1,58 @@
+
+<div class="main-container">
+	<div class="box-container">
+		<div *ngFor="let item of questionLists?.questions;let i = index">
+			<div class="form-group" *ngIf="item.questiontype == '2'">
+				<label>{{item.question}} *</label>
+				<textarea [ngModel]="item.paragraph" (change)="changeAnswer(i, 0, item.questiontype, $event)" class="form-control"></textarea>
+			</div>
+
+			<div class="form-group" *ngIf="item.questiontype == '1'">
+				<label>{{item.question}} *</label>
+				<div class="checkbox-group" *ngFor="let option of item.options;let y = index">
+						<input type="checkbox" [checked]="option.answer" [ngModel]="option.answer"  (change)="changeAnswer(i, y, item.questiontype, $event)" >
+						<label>{{option.option}}</label>
+				</div>
+				<input type="checkbox" [checked]="item.showOption"  (change)="changeAnswer(i, -1, item.questiontype, $event)">
+				<label>Other</label>
+				<div *ngIf="item.showOption">
+					<input type="text" [ngModel]="item.OptionAnswer" (change)="changeAnswer(i, -2, item.questiontype, $event)">
+				</div>
+			</div>
+		</div>
+		 <a href="javascript:void(0)" (click)="modalView = true">Add Question</a>
+		 <button type="button" [routerLink]="['/answers']">Review my answers ></button>
+	</div>
+</div>
+
+
+<div class="modal" *ngIf="modalView">
+	<div class="modal_body">
+		<h2>Add a New Question</h2>
+		<form [formGroup]="formQuestion">
+		 <div class="form-group">
+			 <select formControlName="questiontype" class="form-control">
+				<option value="0">Choose Question Type</option>
+				<option value="1">Checkbox List</option>
+				<option value="2">Paragraph answer</option>
+			 </select>
+		</div>
+		<div class="form-group">
+			 <input placeholder="Type question here" formControlName="question"  class="form-control">
+		</div>	 
+	       <div class="form-group" *ngIf="formQuestion.controls.questiontype?.value  === '1'">
+			  <div formArrayName="options" *ngFor="let time of formQuestion.controls.options?.value; let i = index; trackBy:trackByFn">
+			    <div [formGroupName]="i" class="input-group">
+			      <input placeholder="Add Answer Option" formControlName="option" class="form-control">
+			       <span (click)="removeOption(i)">Remove</span>
+			    </div>
+			  </div>
+
+	 <button (click)="addOption()" class="left">+ Add another answer</button>
+		   </div>
+
+		   <button (click)="submit()">Submit</button>
+		 
+		</form>
+	</div>
+</div>

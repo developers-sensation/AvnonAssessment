@@ -1,0 +1,116 @@
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0 0 0 / 20%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    .modal_body {
+	    max-width: 400px;
+	    width: 100%;
+	    padding: 10px;
+	    border: 1px solid #000000;
+	    background-color : #ffffff;
+	    h2 {
+	    	font:  800 30px/1.5 Roboto, serif;
+	    	padding: 6px;
+	    	margin: 0;
+	    }
+	}
+}
+
+.main-container {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+	.box-container {
+	    // position: absolute;
+	    // top: 50%;
+	    // left: 50%;
+	    // transform: translate(-50%, -50%);
+	    border: 1px solid #9f9f9f;
+	    border-radius: 10px;
+	    padding: 20px;
+	    margin: 0 auto;
+	    max-width: 400px;
+	    box-sizing: border-box;
+		a {
+		    display: block;
+		    margin-bottom: 10px;
+		}
+	}	
+}
+button {
+	box-shadow: none;
+	border: 1px solid #9f9f9f;
+	border-radius: 4px;
+	padding: 8px;
+	background-color: #efefef;
+	color: #000;
+	font-size: 14px;
+	font-weight: 600;
+}
+.form-group {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+	.form-group label {
+	    width: 100%;
+	    display: inline-block;
+	    text-align: left;
+	    font-size: 14px;
+	    color: #000;
+	    margin-bottom: 5px;
+	}
+	.form-control {
+	    width: 100%;
+	    display: inline-block;
+	    position: relative;
+	    font-size: 16px;
+	    color: #000;
+	    line-height: 20px;
+	    border: 1px solid #9f9f9f;
+	    box-shadow: none;
+	    outline: none;
+	    padding: 5px 10px;
+	    box-sizing: border-box;
+	    border-radius: 4px;
+	}
+	.input-group {
+	    display: flex;
+	    width: 100%;
+	    margin-bottom: 10px;
+		span {
+		    padding: 5px 0px;
+		    margin-left: 20px;
+		    color: #ff0505;
+		    font-size: 14px;
+		    cursor: pointer;
+		}
+	}
+	.checkbox-group {
+	    width: 100%;
+	    display: flex;
+	    align-items: center;
+	    margin-bottom: 10px;
+	}
+	.checkbox-group input {
+	    display: inline-block;
+	}
+	.checkbox-group label {
+	    width: auto;
+	    margin: 0;
+	}
+}
+button.left {
+	float: left;
+}
